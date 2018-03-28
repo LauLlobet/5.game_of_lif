@@ -1,34 +1,28 @@
 
 public class Board {
-    private BoardCell[][] array;
+    private Cell[][] array;
     private int heigh;
     private int width;
 
     Board(int width, int height) {
-        this.width = width;
-        this.heigh = height;
-        this.array = new BoardCell[width][height];
-        for (int x = 0; x<width; x++){
-            for (int y =0; y<height; y++){
-                array[x][y] = BoardCell.DEAD;
-            }
-        }
+        this.array = new Cell[width][height];
+        setAllCellsToDead();
     }
 
     public int getWidth() {
-        return width;
+        return array.length;
     }
 
     public int getHeight() {
-        return heigh;
+        return array[0].length;
     }
 
     public boolean isAlive(int row, int column) {
-        return array[row][column] == BoardCell.ALIVE;
+        return array[row][column] == Cell.ALIVE;
     }
 
     public void setAlive(int row, int column) {
-        array[row][column] = BoardCell.ALIVE;
+        array[row][column] = Cell.ALIVE;
     }
 
     public int countAliveNeighbours(int row, int column) {
@@ -59,5 +53,13 @@ public class Board {
         }
         return  neighbours;
 
+    }
+
+    private void setAllCellsToDead() {
+        for (int x = 0; x<this.getWidth(); x++){
+            for (int y =0; y<this.getHeight(); y++){
+                array[x][y] = Cell.DEAD;
+            }
+        }
     }
 }
