@@ -3,7 +3,7 @@ public class Board {
     private int heigh;
     private int width;
 
-    public Board(int width, int height) {
+    Board(int width, int height) {
         this.width = width;
         this.heigh = height;
         this.array = new boolean[width][height];
