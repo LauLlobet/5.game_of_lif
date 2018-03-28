@@ -1,13 +1,14 @@
 import java.util.HashMap;
 
 public class CellAccessor {
-    private HashMap<String,CellL> hashMap = new HashMap<String, CellL>();
-    public CellL getCell(int i, int i1) {
-        CellL guessedCell = hashMap.get(""+i+","+i1);
+    private HashMap<Coordinate,CellL> hashMap = new HashMap<Coordinate, CellL>();
+
+    public CellL getCell(Coordinate coordinate) {
+        CellL guessedCell = hashMap.get(coordinate);
         if(guessedCell != null){
             return guessedCell;
         }
-        hashMap.put(""+i+","+i1,new CellL());
-        return getCell(i,i1);
+        hashMap.put(coordinate,new CellL());
+        return getCell(coordinate);
     }
 }

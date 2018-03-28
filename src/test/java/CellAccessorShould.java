@@ -15,14 +15,14 @@ public class CellAccessorShould {
 
     @Test
     public void create_a_new_cell_if_it_has_never_been_accesed(){
-        CellL cell = cellAccessor.getCell(0,0);
+        CellL cell = cellAccessor.getCell(new Coordinate(0,0));
         assertNotNull(cell);
     }
 
     @Test
     public void return_same_cell_for_same_coordinates(){
-        CellL cell = cellAccessor.getCell(0,0);
-        CellL cell2 = cellAccessor.getCell(0,0);
+        CellL cell = cellAccessor.getCell(new Coordinate(0,0));
+        CellL cell2 = cellAccessor.getCell(new Coordinate(0,0));
         assertEquals(cell,cell2);
     }
 
