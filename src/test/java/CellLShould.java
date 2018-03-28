@@ -18,7 +18,7 @@ public class CellLShould {
 
     @Test
     public void be_dead_at_creation(){
-        CellL c = new CellL();
+        CellL c = new CellL(cellAccessor,new Coordinate(0,0));
         assertFalse(c.isAlive());
     }
 

@@ -8,7 +8,7 @@ public class CellAccessor {
         if(guessedCell != null){
             return guessedCell;
         }
-        hashMap.put(coordinate,new CellL());
+        hashMap.put(coordinate,new CellL(this,coordinate));
         return getCell(coordinate);
     }
 }
