@@ -43,6 +43,5 @@ public class BoardShould {
         board.setAlive(3,1);
         board.setAlive(4,2);
         assertEquals(board.countAliveNeighbours(3,2),2);
-
     }
 }
