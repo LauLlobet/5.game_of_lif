@@ -10,13 +10,13 @@ public class BoardShould {
 
     @Before
     public void prepare_standard_board(){
-        board = new Board(5,4);
+        board = new Board(10,20);
     }
 
     @Test
     public void be_of_given_size(){
-        assertEquals(board.getWidth(),5);
-        assertEquals(board.getHeigh(),4);
+        assertEquals(board.getWidth(),10);
+        assertEquals(board.getHeight(),20);
     }
 
     @Test

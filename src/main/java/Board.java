@@ -13,7 +13,7 @@ public class Board {
         return width;
     }
 
-    public int getHeigh() {
+    public int getHeight() {
         return heigh;
     }
 
@@ -26,8 +26,15 @@ public class Board {
     }
 
     public int countAliveNeighbours(int row, int column) {
+        return  array[row-1][column-1]+
+                array[row][column-1]+
+                array[row+1][column-1]+
 
+                array[row-1][column]+
+                array[row+1][column]+
 
-        return  0;
+                array[row-1][column+1]+
+                array[row][column+1]+
+                array[row+1][column+1];
     }
 }
