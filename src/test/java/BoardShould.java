@@ -18,7 +18,11 @@ public class BoardShould {
     }
 
     @Test
-    public void get_is_alive_of_a_cell(){
+    public void tart_with_all_cells_dead(){
+        assertFalse(board.isAlive(0,1));
+        assertFalse(board.isAlive(0,2));
+        assertFalse(board.isAlive(0,3));
+        assertFalse(board.isAlive(0,4));
 
     }
 }
