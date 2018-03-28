@@ -48,10 +48,18 @@ public class BoardShould {
     }
 
     @Test
-    public void count_number_of_alive_neigbours_in_corner_cases(){
+    public void count_number_of_alive_neigbours_in_top_left_corner_cases(){
         board.setAlive(0,0);
         board.setAlive(1,0);
         board.setAlive(0,1);
+        assertEquals(board.countAliveNeighbours(0,0),2);
+    }
+
+    @Test
+    public void count_number_of_alive_neigbours_in_bottom_right_corner_case(){
+        board.setAlive(9,19);
+        board.setAlive(8,19);
+        board.setAlive(9,18);
         assertEquals(board.countAliveNeighbours(0,0),2);
     }
 }
