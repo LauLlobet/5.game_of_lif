@@ -26,12 +26,21 @@ public class Board {
     }
 
     public int countAliveNeighbours(int row, int column) {
-        return  array[row-1][column-1]+
-                array[row][column-1]+
-                array[row+1][column-1]+
-                array[row-1][column]+
+        int neighbours = 0;
+        if(row > 0){
+            neighbours +=array[row-1][column];
+            neighbours +=array[row+1][column-1];
+        }
+        if(column > 0){
+            neighbours += array[row][column-1];
+            neighbours += array[row-1][column+1];
+        }
+        if (column > 0 && row > 0){
+            neighbours += array[row-1][column-1];
+
+        }
+        return  neighbours +
                 array[row+1][column]+
-                array[row-1][column+1]+
                 array[row][column+1]+
                 array[row+1][column+1];
     }
