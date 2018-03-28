@@ -35,19 +35,29 @@ public class Board {
         int neighbours = 0;
         if(row > 0){
             neighbours +=array[row-1][column].getIsAliveCount();
-            neighbours +=array[row+1][column-1].getIsAliveCount();
+        }
+        if(row > 0 && column < heigh -1){
+            neighbours += array[row+1][column+1].getIsAliveCount();
         }
         if(column > 0){
             neighbours += array[row][column-1].getIsAliveCount();
+        }
+        if(column > 0 && row < width -1){
             neighbours += array[row-1][column+1].getIsAliveCount();
         }
         if (column > 0 && row > 0){
             neighbours += array[row-1][column-1].getIsAliveCount();
-
         }
-        return  neighbours +
-                array[row+1][column].getIsAliveCount()+
-                array[row][column+1].getIsAliveCount()+
-                array[row+1][column+1].getIsAliveCount();
+        if(column < heigh -1){
+            neighbours += array[row][column+1].getIsAliveCount();
+        }
+        if(row < width -1){
+            neighbours += array[row+1][column].getIsAliveCount();
+        }
+        if(row <width-1 && column < width-1){
+            neighbours += array[row+1][column+1].getIsAliveCount();
+        }
+        return  neighbours;
+
     }
 }

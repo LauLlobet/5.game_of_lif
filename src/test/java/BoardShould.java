@@ -60,6 +60,6 @@ public class BoardShould {
         board.setAlive(9,19);
         board.setAlive(8,19);
         board.setAlive(9,18);
-        assertEquals(board.countAliveNeighbours(0,0),2);
+        assertEquals(board.countAliveNeighbours(9,19),2);
     }
 }
