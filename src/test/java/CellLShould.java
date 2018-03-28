@@ -11,16 +11,16 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
  */
 public class CellLShould {
 
-    private World cellAccessor;
+    private World world;
 
     @Before
     public void before(){
-        cellAccessor = new World();
+        world = new World();
     }
 
     @Test
     public void be_dead_at_creation(){
-        CellL c = new CellL();
+        Cell c = new Cell();
         assertFalse(c.isAlive());
     }
 
@@ -28,41 +28,35 @@ public class CellLShould {
     public void procreate_cells() {
         Coordinate c = new Coordinate(0,0);
 
-        cellAccessor.getCell(c);
+        world.getCell(c);
+        world.getCell(c.up()).setAlive();
+        world.getCell(c.upR()).setAlive();
+        world.getCell(c.right()).setAlive();
+        world.calculateAndSetNextGeneration();
 
-        cellAccessor.getCell(c.up()).setAlive();
-        cellAccessor.getCell(c.upR()).setAlive();
-        cellAccessor.getCell(c.right()).setAlive();
-
-        cellAccessor.calculateAndSetNextGeneration();
-
-        assertTrue(cellAccessor.getCell(c).isAlive());
+        assertTrue(world.getCell(c).isAlive());
     }
 
     @Test
     public void mantain_alive_cells() {
         Coordinate c = new Coordinate(0,0);
 
-        cellAccessor.getCell(c).setAlive();
+        world.getCell(c).setAlive();
+        world.getCell(c.upR()).setAlive();
+        world.getCell(c.right()).setAlive();
+        world.calculateAndSetNextGeneration();
 
-        cellAccessor.getCell(c.upR()).setAlive();
-        cellAccessor.getCell(c.right()).setAlive();
-
-        cellAccessor.calculateAndSetNextGeneration();
-
-        assertTrue(cellAccessor.getCell(c).isAlive());
+        assertTrue(world.getCell(c).isAlive());
     }
 
     @Test
     public void let_die_cell() {
         Coordinate c = new Coordinate(0,0);
 
-        cellAccessor.getCell(c).setAlive();
+        world.getCell(c).setAlive();
+        world.getCell(c.upR()).setAlive();
+        world.calculateAndSetNextGeneration();
 
-        cellAccessor.getCell(c.upR()).setAlive();
-
-        cellAccessor.calculateAndSetNextGeneration();
-
-        assertFalse(cellAccessor.getCell(c).isAlive());
+        assertFalse(world.getCell(c).isAlive());
     }
 }
