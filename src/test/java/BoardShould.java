@@ -42,6 +42,16 @@ public class BoardShould {
     public void count_number_of_alive_neighbours_for_a_given_position(){
         board.setAlive(3,1);
         board.setAlive(4,2);
-        assertEquals(board.countAliveNeighbours(3,2),2);
+        board.setAlive(3,3);
+        board.setAlive(3,2);
+        assertEquals(board.countAliveNeighbours(3,2),3);
+    }
+
+    @Test
+    public void count_number_of_alive_neigbours_in_corner_cases(){
+        board.setAlive(0,0);
+        board.setAlive(1,0);
+        board.setAlive(0,1);
+        assertEquals(board.countAliveNeighbours(0,0),2);
     }
 }

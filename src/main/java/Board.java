@@ -29,10 +29,8 @@ public class Board {
         return  array[row-1][column-1]+
                 array[row][column-1]+
                 array[row+1][column-1]+
-
                 array[row-1][column]+
                 array[row+1][column]+
-
                 array[row-1][column+1]+
                 array[row][column+1]+
                 array[row+1][column+1];
