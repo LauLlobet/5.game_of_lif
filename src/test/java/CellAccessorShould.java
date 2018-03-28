@@ -6,11 +6,11 @@ import static org.junit.Assert.assertNotNull;
 
 public class CellAccessorShould {
 
-    CellAccessor cellAccessor;
+    World cellAccessor;
 
     @Before
     public void create_cell_accessor(){
-        cellAccessor = new  CellAccessor();
+        cellAccessor = new World();
     }
 
     @Test

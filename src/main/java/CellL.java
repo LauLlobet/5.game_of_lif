@@ -1,17 +1,28 @@
 public class CellL {
-    private final CellAccessor cellAccessor;
     private boolean alive = false;
-    private Coordinate ownCoordinate;
-
-    public CellL(CellAccessor cellAccessor, Coordinate coordinate) {
-        this.cellAccessor = cellAccessor;
-    }
+    private boolean nextAlive = false;
 
     public boolean isAlive() {
-        return alive;
+        return  alive;
+    }
+
+    public void calculateNextGeneration(int neigbours){
+        if(neigbours == 2 && alive){
+            nextAlive= true;
+            return;
+        }
+        if(neigbours == 3){
+            nextAlive = true;
+            return;
+        }
+        nextAlive = false;
     }
 
     public void setAlive() {
         alive = true;
+    }
+
+    public void setToNextGeneration() {
+        alive = nextAlive;
     }
 }
