@@ -26,5 +26,19 @@ public class CellAccessorShould {
         assertEquals(cell,cell2);
     }
 
+    @Test
+    public void count_alive_cells_around_coordinate(){
+        Coordinate c = new Coordinate(0,0);
+        cellAccessor.getCell(c.up()).setAlive();
+        cellAccessor.getCell(c.upR()).setAlive();
+        cellAccessor.getCell(c.right()).setAlive();
+        cellAccessor.getCell(c.downR()).setAlive();
+        cellAccessor.getCell(c.down()).setAlive();
+        cellAccessor.getCell(c.downL()).setAlive();
+        cellAccessor.getCell(c.left()).setAlive();
+        cellAccessor.getCell(c.upL()).setAlive();
+
+        assertEquals(8,cellAccessor.countNeihboursAlive(new Coordinate(0,0)));
+    }
 
 }

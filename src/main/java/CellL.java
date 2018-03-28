@@ -14,9 +14,4 @@ public class CellL {
     public void setAlive() {
         alive = true;
     }
-
-    public int countNeigbours() {
-        cellAccessor.getCell(ownCoordinate.up());
-        return 0;
-    }
 }
